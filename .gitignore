@@ -1,0 +1,13 @@
+node_modules/
+temp/
+data/
+dist/
+logs/
+.env
+*.log3
+*.part
+*.aria2
+*.zip
+*.db
+*.db-shm
+*.db-wal

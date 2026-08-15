@@ -1,0 +1,91 @@
+.navbar {
+    background-color: #262626;
+    border-radius: 80px;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid #333333;
+}
+
+.logo-text {
+    font-size: clamp(1.3rem, 4vw, 1.7rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #FFFFFF, #A6A6A6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+    background-color: #1A1A1A;
+    padding: 6px;
+    border-radius: 60px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-item {
+    padding: 6px 16px;
+    color: #A6A6A6;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 40px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.nav-item.active {
+    background-color: #1E6FD9;
+    color: white;
+    box-shadow: 0 2px 8px rgba(30,111,217,0.3);
+}
+
+.nav-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #1A1A1A;
+    padding: 4px 12px 4px 16px;
+    border-radius: 50px;
+    cursor: default;
+    transition: 0.2s;
+    border: 1px solid #3A3A3A;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(145deg, #1E6FD9, #0F4C9E);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-avatar svg {
+    width: 18px;
+    height: 18px;
+    stroke: white;
+}
+
+.user-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #E0E0E0;
+}

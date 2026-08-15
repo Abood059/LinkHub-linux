@@ -1,0 +1,369 @@
+/* settings.css - Complete responsive settings page */
+
+/* =========================================================
+   Settings section
+   ========================================================= */
+
+#settings-section {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    direction: rtl;
+}
+
+/* =========================================================
+   Main settings card
+   ========================================================= */
+
+#settings-section .settings-card {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    background-color: #1f2227;
+    border: 1px solid #343a43;
+    border-radius: 26px;
+
+    box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.28),
+        0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+/* =========================================================
+   Settings card header
+   ========================================================= */
+
+#settings-section .section-subheading {
+    width: 100%;
+    min-height: 74px;
+    margin: 0;
+    padding: 22px 28px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    color: #ffffff;
+    background-color: #29313e;
+    border-bottom: 1px solid #3a424d;
+
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: right;
+}
+
+/* =========================================================
+   Settings content
+   ========================================================= */
+
+#settings-section .settings-placeholder {
+    width: 100%;
+    min-width: 0;
+    padding: 22px;
+    box-sizing: border-box;
+
+    display: grid;
+
+    /* Two fixed columns for buttons and one flexible column */
+    grid-template-columns: 170px 170px minmax(0, 1fr);
+
+    justify-content: start;
+    align-items: stretch;
+    gap: 12px;
+
+    direction: rtl;
+}
+
+/* =========================================================
+   Setting rows
+   ========================================================= */
+
+#settings-section .settings-placeholder p {
+    /* Make the setting rows use the complete card width */
+    grid-column: 1 / -1;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 54px;
+    margin: 0;
+    padding: 14px 18px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    color: #eef3fa;
+    background-color: #191c21;
+
+    border: 1px solid #343b45;
+    border-right: 4px solid #2f80ed;
+    border-radius: 15px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: right;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+#settings-section .settings-placeholder p:hover {
+    background-color: #1d2127;
+    border-color: #46505c;
+    border-right-color: #5ca1ff;
+    transform: translateX(-3px);
+}
+
+/* =========================================================
+   Settings buttons
+   ========================================================= */
+
+#settings-section #refresh-devices {
+    grid-column: 1;
+}
+
+#settings-section #pair-device-btn {
+    grid-column: 2;
+    margin: 0 !important;
+}
+
+#settings-section .btn-outline {
+    width: 170px;
+    min-width: 0;
+    max-width: 170px;
+    min-height: 42px;
+
+    margin: 0 !important;
+    padding: 9px 14px;
+    box-sizing: border-box;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #69aaff;
+    background-color: rgba(47, 128, 237, 0.08);
+
+    border: 1px solid #2f80ed;
+    border-radius: 11px;
+
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+
+    white-space: nowrap;
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+#settings-section .btn-outline:hover {
+    color: #ffffff;
+    background-color: #2f80ed;
+    border-color: #67a8ff;
+
+    box-shadow: 0 7px 17px rgba(47, 128, 237, 0.28);
+    transform: translateY(-2px);
+}
+
+#settings-section .btn-outline:active {
+    background-color: #246ac5;
+    transform: translateY(0);
+}
+
+#settings-section .btn-outline:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   Medium screens and tablets
+   ========================================================= */
+
+@media (max-width: 850px) {
+    #settings-section {
+        width: 100%;
+        margin-top: 28px;
+    }
+
+    #settings-section .settings-card {
+        width: 100%;
+        border-radius: 22px;
+    }
+
+    #settings-section .section-subheading {
+        min-height: 64px;
+        padding: 18px 22px;
+        font-size: 1.1rem;
+    }
+
+    #settings-section .settings-placeholder {
+        /*
+         * Keep the buttons compact while allowing the setting
+         * rows to occupy the complete available width.
+         */
+        grid-template-columns: 155px 155px minmax(0, 1fr);
+
+        padding: 18px;
+        gap: 10px;
+    }
+
+    #settings-section .settings-placeholder p {
+        grid-column: 1 / -1;
+        width: 100%;
+        min-height: 50px;
+        padding: 12px 15px;
+
+        border-radius: 13px;
+
+        font-size: 0.88rem;
+    }
+
+    #settings-section .btn-outline {
+        width: 155px;
+        max-width: 155px;
+        min-height: 42px;
+
+        padding: 9px 12px;
+
+        font-size: 0.75rem;
+    }
+}
+
+/* =========================================================
+   Small screens and phones
+   ========================================================= */
+
+@media (max-width: 600px) {
+    #settings-section {
+        width: 100%;
+        margin-top: 22px;
+    }
+
+    #settings-section .settings-card {
+        width: 100%;
+        border-radius: 18px;
+    }
+
+    #settings-section .section-subheading {
+        min-height: 58px;
+        padding: 16px;
+
+        font-size: 1rem;
+    }
+
+    #settings-section .settings-placeholder {
+        grid-template-columns: 1fr;
+
+        padding: 14px;
+        gap: 9px;
+    }
+
+    #settings-section .settings-placeholder p {
+        grid-column: 1;
+
+        width: 100%;
+        min-height: auto;
+        padding: 12px;
+
+        border-right-width: 3px;
+        border-radius: 12px;
+
+        font-size: 0.8rem;
+        line-height: 1.7;
+    }
+
+    #settings-section #refresh-devices,
+    #settings-section #pair-device-btn {
+        grid-column: 1;
+
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+
+        margin: 0 !important;
+    }
+
+    #settings-section .btn-outline {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        min-height: 46px;
+
+        padding: 11px 14px;
+        border-radius: 11px;
+
+        font-size: 0.78rem;
+    }
+}
+
+/* =========================================================
+   Very small phones
+   ========================================================= */
+
+@media (max-width: 380px) {
+    #settings-section {
+        margin-top: 18px;
+    }
+
+    #settings-section .settings-card {
+        border-radius: 15px;
+    }
+
+    #settings-section .section-subheading {
+        min-height: 52px;
+        padding: 14px 12px;
+
+        font-size: 0.92rem;
+    }
+
+    #settings-section .settings-placeholder {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    #settings-section .settings-placeholder p {
+        padding: 10px;
+        border-radius: 10px;
+
+        font-size: 0.73rem;
+    }
+
+    #settings-section .btn-outline {
+        min-height: 44px;
+        padding: 10px;
+
+        font-size: 0.72rem;
+    }
+}
+
+/* =========================================================
+   Reduced motion
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    #settings-section .settings-placeholder p,
+    #settings-section .btn-outline {
+        transition: none;
+    }
+}

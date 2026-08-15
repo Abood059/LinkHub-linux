@@ -1,0 +1,26 @@
+'use strict';
+
+const PROCESS_STATUS = Object.freeze({
+    RUNNING: 'RUNNING',
+    EXITED: 'EXITED',
+    FAILED: 'FAILED'
+});
+
+const PROCESS_SIGNALS = Object.freeze({
+    GRACEFUL: 'SIGTERM',
+    FORCE: 'SIGKILL'
+});
+
+const PROCESS_TIMEOUTS = Object.freeze({
+    GRACEFUL_TERMINATION_MS: 500,
+    FORCE_KILL_WAIT_MS: 300,
+    WATCH_DEFAULT_TIMEOUT_MS: 15000,
+    QUICK_TASK_TIMEOUT_MS: 5000,
+    MAX_WATCH_OUTPUT_SIZE: 1024 * 1024
+});
+
+module.exports = Object.freeze({
+    PROCESS_STATUS,
+    PROCESS_SIGNALS,
+    PROCESS_TIMEOUTS
+});

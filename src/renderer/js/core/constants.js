@@ -1,0 +1,28 @@
+export const DOM_IDS = {
+    navItems: '.nav-item',
+    homeSection: 'home-section',
+    downloadsSection: 'downloads-section',
+    settingsSection: 'settings-section',
+    favoriteContainer: 'favorite-devices',
+    nonFavoriteContainer: 'non-favorite-devices',
+    downloadsTbody: 'downloads-tbody',
+    recentDownloadsTbody: 'recent-downloads-tbody',
+    btnStart: 'btn-start-route',
+    mediaUrl: 'media-url',
+    btnStartDownloads: 'btn-start-route-downloads',
+    mediaUrlDownloads: 'media-url-downloads',
+    refreshDevices: 'refresh-devices',
+    pairDevice: 'pair-device-btn',
+    // modal
+    deviceModal: 'device-modal',
+    modalClose: '.modal-close',
+    modalOverlay: '.modal-overlay',
+    modalDeviceName: 'modal-device-name',
+    modalDeviceModel: 'modal-device-model',
+    modalDeviceVersion: 'modal-device-version',
+    modalDeviceArch: 'modal-device-arch',
+    modalDeviceStatus: 'modal-device-status',
+    modalDeviceAdb: 'modal-device-adb',
+    modalStreamBtn: 'modal-stream-btn',
+    modalDisconnectBtn: 'modal-disconnect-btn'
+};

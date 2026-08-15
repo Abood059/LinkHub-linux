@@ -1,0 +1,2063 @@
+/* responsive.css - Complete responsive styling */
+
+/* =========================================================
+   Global protection
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+.navbar,
+.dashboard-content,
+.tab-section,
+.devices-section,
+.routing-section,
+.recent-downloads-section,
+.devices-capsule-wrapper,
+.downloads-capsule-wrapper,
+.downloads-card,
+.settings-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Hide the hamburger button on desktop */
+.nav-toggle {
+    display: none;
+}
+
+/* =========================================================
+   Recent downloads - Dashboard card
+   ========================================================= */
+
+.recent-downloads-section {
+    width: 100%;
+}
+
+/* Main recent downloads card */
+.downloads-capsule-wrapper {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    padding: 0 !important;
+    border: 1px solid #363a42;
+    border-radius: 24px;
+    background-color: #202226;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Top title bar */
+.downloads-capsule-wrapper>.section-subheading {
+    order: 1;
+    display: block;
+    width: 100%;
+    min-height: 66px;
+    margin: 0 !important;
+    padding: 20px 22px;
+    border-bottom: 1px solid #363a42;
+    background:
+        linear-gradient(135deg,
+            rgba(46, 125, 232, 0.09),
+            transparent 45%),
+        #292c32;
+    color: #ffffff;
+    direction: rtl;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: right !important;
+}
+
+/* Move the table above the buttons */
+.downloads-capsule-wrapper>.recent-downloads-table-container {
+    order: 2;
+}
+
+/* Move the buttons below the table */
+.downloads-capsule-wrapper>.bulk-actions {
+    order: 3;
+}
+
+/* Table area */
+.recent-downloads-table-container {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding: 16px 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: #202226;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-color: #4c515a #25282d;
+    scrollbar-width: thin;
+}
+
+.recent-downloads-table-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.recent-downloads-table-container::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #25282d;
+}
+
+.recent-downloads-table-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #4c515a;
+}
+
+/* Recent downloads table */
+.downloads-capsule-wrapper .recent-downloads-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100%;
+    margin: 0;
+    border-spacing: 0 7px;
+    border-collapse: separate;
+    table-layout: fixed;
+}
+
+/* Table headings */
+.downloads-capsule-wrapper .recent-downloads-table th {
+    padding: 9px 7px;
+    border: 0;
+    background-color: transparent;
+    color: #9199a5;
+    font-size: 0.7rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Table cells */
+.downloads-capsule-wrapper .recent-downloads-table td {
+    padding: 13px 7px;
+    border-top: 1px solid #343840;
+    border-bottom: 1px solid #343840;
+    background-color: #292c32;
+    color: #f3f3f3;
+    font-size: 0.76rem;
+    line-height: 1.4;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+/* Rounded table rows */
+.downloads-capsule-wrapper .recent-downloads-table td:first-child {
+    border-right: 1px solid #343840;
+    border-radius: 0 12px 12px 0;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table td:last-child {
+    border-left: 1px solid #343840;
+    border-radius: 12px 0 0 12px;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table tbody tr:hover td {
+    border-color: #414751;
+    background-color: #2e3239;
+}
+
+/* Balanced column widths */
+.downloads-capsule-wrapper .recent-downloads-table th:nth-child(1),
+.downloads-capsule-wrapper .recent-downloads-table td:nth-child(1) {
+    width: 22%;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table th:nth-child(2),
+.downloads-capsule-wrapper .recent-downloads-table td:nth-child(2) {
+    width: 16%;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table th:nth-child(3),
+.downloads-capsule-wrapper .recent-downloads-table td:nth-child(3) {
+    width: 10%;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table th:nth-child(4),
+.downloads-capsule-wrapper .recent-downloads-table td:nth-child(4) {
+    width: 14%;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table th:nth-child(5),
+.downloads-capsule-wrapper .recent-downloads-table td:nth-child(5) {
+    width: 22%;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table th:nth-child(6),
+.downloads-capsule-wrapper .recent-downloads-table td:nth-child(6) {
+    width: 16%;
+}
+
+/* Empty table state */
+.downloads-capsule-wrapper .recent-downloads-table .empty-row td,
+.downloads-capsule-wrapper .recent-downloads-table td[colspan] {
+    width: auto;
+    height: 74px;
+    padding: 20px 12px;
+    border: 1px dashed #3b4048 !important;
+    border-radius: 12px !important;
+    background-color: #25282d;
+    color: #9299a3;
+    text-align: center;
+    white-space: normal;
+}
+
+/* Bottom action bar */
+.downloads-capsule-wrapper>.bulk-actions {
+    display: flex !important;
+    width: 100% !important;
+    min-height: 64px;
+    margin: 0 !important;
+    padding: 13px 20px !important;
+    border-top: 1px solid #363a42;
+    background-color: #1b1d21;
+    direction: rtl;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px !important;
+}
+
+/* Override inline button styles safely */
+.downloads-capsule-wrapper>.bulk-actions .btn-modern {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 94px;
+    min-height: 36px;
+    max-width: none;
+    margin: 0 !important;
+    padding: 8px 15px !important;
+    border: 0 !important;
+    border-radius: 10px !important;
+    color: #ffffff !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        filter 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* Stop all button */
+.downloads-capsule-wrapper #btn-stop-all-downloads-home {
+    background-color: #d93636 !important;
+    box-shadow: 0 5px 13px rgba(217, 54, 54, 0.25) !important;
+}
+
+/* Resume all button */
+.downloads-capsule-wrapper #btn-resume-all-downloads-home {
+    background-color: #369743 !important;
+    box-shadow: 0 5px 13px rgba(54, 151, 67, 0.25) !important;
+}
+
+.downloads-capsule-wrapper>.bulk-actions .btn-modern:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.downloads-capsule-wrapper>.bulk-actions .btn-modern:active {
+    transform: translateY(0);
+}
+
+.downloads-capsule-wrapper>.bulk-actions .btn-modern:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   Medium screens and tablets
+   ========================================================= */
+
+@media (max-width: 850px) {
+    body {
+        padding: 16px;
+    }
+
+    /* Hamburger navigation */
+    .navbar-wrapper {
+        width: 100%;
+    }
+
+    .navbar {
+        position: relative;
+        display: flex;
+        width: 100%;
+        padding: 10px 14px;
+        border-radius: 24px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    .logo {
+        order: 1;
+        position: static;
+        width: auto;
+        text-align: start;
+    }
+
+    .logo-text {
+        font-size: 1.35rem;
+    }
+
+    .nav-toggle {
+        order: 2;
+        display: flex;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border: 1px solid #3a3a3a;
+        border-radius: 12px;
+        background-color: #1a1a1a;
+        color: #ffffff;
+        cursor: pointer;
+        flex: 0 0 42px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease;
+    }
+
+    .nav-toggle:hover {
+        border-color: #4a4a4a;
+        background-color: #242424;
+    }
+
+    .nav-toggle:focus-visible {
+        outline: 2px solid #1e6fd9;
+        outline-offset: 3px;
+    }
+
+    .nav-toggle-line {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background-color: currentColor;
+        transform-origin: center;
+        transition:
+            transform 0.25s ease,
+            opacity 0.2s ease;
+    }
+
+    .nav-links {
+        order: 3;
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+        max-height: 0;
+        margin-top: 0;
+        padding: 0;
+        border-radius: 16px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 6px;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition:
+            max-height 0.3s ease,
+            margin-top 0.3s ease,
+            padding 0.3s ease,
+            opacity 0.2s ease,
+            transform 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .navbar.nav-open .nav-links {
+        max-height: 240px;
+        margin-top: 10px;
+        padding: 8px;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .nav-item {
+        display: flex;
+        width: 100%;
+        min-width: 0;
+        min-height: 42px;
+        padding: 9px 14px;
+        border-radius: 11px;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        white-space: nowrap;
+    }
+
+    .nav-item span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .nav-icon {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 18px;
+    }
+
+    .navbar.nav-open .nav-toggle-line:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .navbar.nav-open .nav-toggle-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar.nav-open .nav-toggle-line:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .user-profile {
+        display: none;
+    }
+
+    /* Main content */
+    .dashboard-content {
+        width: 100%;
+    }
+
+    /* Device capsules */
+    .devices-capsule-pill {
+        width: 100%;
+        padding: 16px 20px;
+        border-radius: 30px;
+        gap: 14px;
+    }
+
+    .device-item {
+        max-width: 100%;
+        padding: 8px 14px;
+        gap: 10px;
+    }
+
+    .device-name {
+        font-size: 0.8rem;
+    }
+
+    .device-circle {
+        width: 36px;
+        height: 36px;
+        flex: 0 0 36px;
+    }
+
+    .device-circle svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    /* Media URL input */
+    .routing-input-container {
+        width: 100%;
+    }
+
+    .input-url {
+        min-width: 0;
+    }
+
+    .btn-route {
+        flex-shrink: 0;
+        padding: 8px 18px;
+    }
+
+    /* Recent downloads card */
+    .recent-downloads-section,
+    .downloads-capsule-wrapper,
+    .downloads-card {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .downloads-capsule-wrapper {
+        border-radius: 20px;
+    }
+
+    .downloads-capsule-wrapper>.section-subheading {
+        min-height: 60px;
+        padding: 18px;
+        direction: rtl;
+        font-size: 1.04rem;
+        text-align: right !important;
+    }
+
+    .recent-downloads-table-container {
+        width: 100%;
+        padding: 12px 14px;
+    }
+
+    /* Fix the tablet table width */
+    .downloads-capsule-wrapper .recent-downloads-table {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100%;
+    }
+
+    .downloads-capsule-wrapper .recent-downloads-table th {
+        padding: 8px 5px;
+        font-size: 0.66rem;
+    }
+
+    .downloads-capsule-wrapper .recent-downloads-table td {
+        padding: 11px 5px;
+        font-size: 0.69rem;
+    }
+
+    .downloads-capsule-wrapper>.bulk-actions {
+        min-height: 58px;
+        padding: 11px 16px !important;
+        justify-content: flex-start;
+        gap: 8px !important;
+    }
+
+    .downloads-capsule-wrapper>.bulk-actions .btn-modern {
+        min-width: 86px;
+        min-height: 34px;
+        padding: 7px 12px !important;
+        font-size: 0.69rem !important;
+    }
+
+    /* Full downloads table */
+    .table-container {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        padding-bottom: 6px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-inline: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+
+    .table-container>.downloads-table {
+        width: 760px;
+        min-width: 760px;
+        table-layout: fixed;
+    }
+}
+
+/* =========================================================
+   Phones and small screens
+   ========================================================= */
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .app-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Hamburger navigation adjustments */
+    .navbar {
+        padding: 9px 11px;
+        border-radius: 20px;
+    }
+
+    .logo-text {
+        font-size: 1.25rem;
+    }
+
+    .nav-toggle {
+        width: 39px;
+        height: 39px;
+        border-radius: 10px;
+        flex-basis: 39px;
+    }
+
+    .nav-toggle-line {
+        width: 19px;
+    }
+
+    .navbar.nav-open .nav-links {
+        max-height: 220px;
+        margin-top: 9px;
+        padding: 7px;
+    }
+
+    .nav-item {
+        min-height: 40px;
+        padding: 8px 12px;
+        font-size: 0.78rem;
+    }
+
+    .nav-icon {
+        width: 17px;
+        height: 17px;
+        flex-basis: 17px;
+    }
+
+    /* Device sections */
+    .devices-section,
+    .devices-capsule-wrapper {
+        width: 100%;
+    }
+
+    .devices-capsule-pill {
+        width: 100%;
+        min-height: auto;
+        padding: 12px;
+        border-radius: 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .device-item {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px 12px;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .device-info {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .device-name {
+        max-width: 100%;
+        font-size: 0.82rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .device-detail {
+        display: none;
+    }
+
+    .status-badge {
+        padding: 3px 7px;
+        font-size: 0.6rem;
+        flex-shrink: 0;
+    }
+
+    .placeholder-text {
+        max-width: 100%;
+        text-align: center;
+        white-space: normal;
+    }
+
+    /* Media URL input */
+    .routing-section {
+        width: 100%;
+    }
+
+    .routing-input-container {
+        width: 100%;
+        padding: 10px;
+        border-radius: 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .input-url {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        padding: 10px 12px;
+        font-size: 0.78rem;
+        text-align: center;
+    }
+
+    .btn-route {
+        display: flex;
+        width: 100%;
+        min-height: 38px;
+        padding: 9px 14px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Section headings */
+    .section-subheading {
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    /* Recent downloads mobile card */
+    .downloads-capsule-wrapper {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 18px;
+        overflow: hidden;
+    }
+
+    .downloads-capsule-wrapper>.section-subheading {
+        min-height: 56px;
+        margin: 0 !important;
+        padding: 17px 14px;
+        direction: rtl;
+        font-size: 0.98rem;
+        text-align: right !important;
+    }
+
+    .recent-downloads-table-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    /* Use horizontal scrolling only on phones */
+    .downloads-capsule-wrapper .recent-downloads-table {
+        width: 620px !important;
+        min-width: 620px !important;
+        max-width: none;
+        border-spacing: 0 6px;
+    }
+
+    .downloads-capsule-wrapper .recent-downloads-table th {
+        padding: 7px 6px;
+        font-size: 0.65rem;
+    }
+
+    .downloads-capsule-wrapper .recent-downloads-table td {
+        padding: 10px 6px;
+        font-size: 0.67rem;
+    }
+
+    .downloads-capsule-wrapper .recent-downloads-table .empty-row td,
+    .downloads-capsule-wrapper .recent-downloads-table td[colspan] {
+        height: 66px;
+        padding: 18px 8px;
+        white-space: normal;
+    }
+
+    /* Bottom action bar */
+    .downloads-capsule-wrapper>.bulk-actions {
+        width: 100% !important;
+        min-height: 56px;
+        margin: 0 !important;
+        padding: 10px 12px !important;
+        direction: rtl;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px !important;
+    }
+
+    .downloads-capsule-wrapper>.bulk-actions .btn-modern {
+        flex: 0 0 auto;
+        width: auto;
+        min-width: 84px;
+        max-width: none;
+        min-height: 34px;
+        padding: 7px 11px !important;
+        font-size: 0.68rem !important;
+        text-align: center;
+    }
+
+    /* Full downloads card */
+    .downloads-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px 12px;
+        border-radius: 24px;
+        overflow: hidden;
+    }
+
+    /* Full downloads table */
+    .table-container {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        padding-bottom: 5px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-inline: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+
+    .table-container>.downloads-table {
+        width: 720px;
+        min-width: 720px;
+        table-layout: fixed;
+    }
+
+    .downloads-table th,
+    .downloads-table td {
+        padding: 8px 6px;
+        font-size: 0.68rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Table action buttons */
+    .downloads-table button,
+    .recent-downloads-table button {
+        max-width: 100%;
+        padding: 4px 8px !important;
+        font-size: 0.65rem !important;
+        white-space: nowrap;
+    }
+
+    /* Download progress bars */
+    .progress-wrapper {
+        min-width: 90px;
+    }
+
+    /* Floating file-share button */
+    .fab-share-files {
+        left: 16px;
+        bottom: 16px;
+        width: 52px;
+        height: 52px;
+    }
+
+    /* Floating transfer-progress button */
+    .transfer-progress-fab {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    /* Transfer details popover */
+    .transfer-popover {
+        right: 12px;
+        bottom: 78px;
+        left: 12px;
+        width: auto;
+        max-width: none;
+    }
+
+    /* Modal sizing */
+    .modal-content {
+        width: calc(100% - 20px);
+        max-width: calc(100% - 20px);
+        max-height: calc(100vh - 30px);
+        overflow-y: auto;
+    }
+}
+
+/* =========================================================
+   Extra-small phones
+   ========================================================= */
+
+@media (max-width: 400px) {
+    body {
+        padding: 8px;
+    }
+
+    .navbar {
+        padding: 8px 10px;
+        border-radius: 18px;
+    }
+
+    .logo-text {
+        font-size: 1.15rem;
+    }
+
+    .nav-toggle {
+        width: 37px;
+        height: 37px;
+        flex-basis: 37px;
+    }
+
+    .nav-item {
+        min-height: 38px;
+        padding: 8px 10px;
+        font-size: 0.75rem;
+    }
+
+    .devices-capsule-pill {
+        padding: 10px;
+    }
+
+    .routing-input-container {
+        padding: 9px;
+    }
+
+    .downloads-capsule-wrapper {
+        border-radius: 17px;
+    }
+
+    .downloads-capsule-wrapper>.section-subheading {
+        min-height: 52px;
+        padding: 15px 12px;
+        direction: rtl;
+        font-size: 0.93rem;
+    }
+
+    .recent-downloads-table-container {
+        padding: 8px;
+    }
+
+    .downloads-capsule-wrapper .recent-downloads-table {
+        width: 600px !important;
+        min-width: 600px !important;
+    }
+
+    .downloads-capsule-wrapper .recent-downloads-table th {
+        padding: 7px 5px;
+        font-size: 0.62rem;
+    }
+
+    .downloads-capsule-wrapper .recent-downloads-table td {
+        padding: 9px 5px;
+        font-size: 0.64rem;
+    }
+
+    .downloads-capsule-wrapper>.bulk-actions {
+        min-height: 52px;
+        padding: 9px 10px !important;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 6px !important;
+    }
+
+    .downloads-capsule-wrapper>.bulk-actions .btn-modern {
+        width: auto;
+        min-width: 78px;
+        max-width: none;
+        min-height: 32px;
+        padding: 6px 9px !important;
+        font-size: 0.65rem !important;
+        text-align: center;
+    }
+
+    .downloads-card {
+        padding: 14px 10px;
+    }
+
+    .section-subheading {
+        font-size: 0.95rem;
+    }
+}
+
+/* =========================================================
+   Ultra-wide screens
+   ========================================================= */
+
+@media (min-width: 1600px) {
+    .devices-capsule-pill {
+        padding: 24px 36px;
+        gap: 28px;
+    }
+
+    .device-item {
+        padding: 14px 26px;
+        gap: 16px;
+    }
+
+    .device-name {
+        font-size: 1rem;
+    }
+
+    .device-circle {
+        width: 48px;
+        height: 48px;
+    }
+
+    .device-circle svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .downloads-capsule-wrapper>.section-subheading {
+        min-height: 72px;
+        padding: 23px 26px;
+        direction: rtl;
+        font-size: 1.18rem;
+        text-align: right !important;
+    }
+
+    .recent-downloads-table-container {
+        padding: 18px 22px;
+    }
+
+    .downloads-capsule-wrapper .recent-downloads-table th {
+        padding: 10px 12px;
+        font-size: 0.77rem;
+    }
+
+    .downloads-capsule-wrapper .recent-downloads-table td {
+        padding: 15px 12px;
+        font-size: 0.81rem;
+    }
+
+    .downloads-capsule-wrapper>.bulk-actions {
+        min-height: 70px;
+        padding: 15px 24px !important;
+    }
+}
+
+/* Final responsive layout for recent download controls */
+.downloads-capsule-wrapper>.bulk-actions {
+    display: flex !important;
+    width: 100% !important;
+    direction: rtl;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px !important;
+}
+
+.downloads-capsule-wrapper>.bulk-actions .btn-modern {
+    display: inline-flex;
+    flex: 0 1 auto;
+    width: auto;
+    min-width: 84px;
+    max-width: 150px;
+    min-height: 34px;
+    margin: 0 !important;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .downloads-capsule-wrapper>.bulk-actions {
+        padding: 10px 12px !important;
+        justify-content: flex-start;
+    }
+
+    .downloads-capsule-wrapper>.bulk-actions .btn-modern {
+        min-width: 80px;
+        max-width: 130px;
+        padding: 7px 10px !important;
+        font-size: 0.66rem !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .downloads-capsule-wrapper>.bulk-actions {
+        min-height: auto;
+        padding: 10px !important;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        justify-content: center;
+        gap: 8px !important;
+    }
+
+    .downloads-capsule-wrapper>.bulk-actions .btn-modern {
+        display: flex;
+        flex: 0 0 auto;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        min-height: 36px;
+        padding: 8px 10px !important;
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   Modern media URL input and download button
+   ========================================================= */
+
+.routing-section {
+    width: 100%;
+}
+
+.routing-input-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 58px;
+    padding: 7px;
+    border: 1px solid rgba(68, 139, 235, 0.28);
+    border-radius: 18px;
+    background:
+        linear-gradient(135deg, rgba(46, 125, 232, 0.08), transparent 42%),
+        #23252a;
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    direction: rtl;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.routing-input-container:focus-within {
+    border-color: rgba(46, 125, 232, 0.72);
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.28),
+        0 0 0 3px rgba(46, 125, 232, 0.12);
+}
+
+.routing-input-container::before {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(105, 164, 245, 0.2);
+    border-radius: 11px;
+    background-color: rgba(46, 125, 232, 0.11);
+    color: #75adf8;
+    content: "🔗";
+    flex: 0 0 38px;
+    font-size: 0.95rem;
+    place-items: center;
+}
+
+.routing-input-container .input-url {
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    padding: 0 6px;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: #f5f7fb;
+    direction: rtl;
+    font-size: 0.86rem;
+    text-align: right;
+}
+
+.routing-input-container .input-url::placeholder {
+    color: #7f8793;
+    opacity: 1;
+}
+
+.routing-input-container .btn-route {
+    display: inline-flex;
+    min-width: 132px;
+    min-height: 42px;
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3488f4, #1f6fd8);
+    box-shadow:
+        0 8px 18px rgba(31, 111, 216, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.routing-input-container .btn-route:hover {
+    background: linear-gradient(135deg, #4393fa, #2879e4);
+    box-shadow:
+        0 10px 22px rgba(31, 111, 216, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+}
+
+.routing-input-container .btn-route:active {
+    box-shadow: 0 5px 12px rgba(31, 111, 216, 0.25);
+    transform: translateY(0);
+}
+
+.routing-input-container .btn-route:focus-visible {
+    outline: 2px solid #9bc6ff;
+    outline-offset: 2px;
+}
+
+@media (max-width: 850px) {
+    .routing-input-container {
+        min-height: 54px;
+        padding: 6px;
+        border-radius: 16px;
+        gap: 8px;
+    }
+
+    .routing-input-container::before {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+        border-radius: 10px;
+    }
+
+    .routing-input-container .input-url {
+        height: 40px;
+        font-size: 0.8rem;
+    }
+
+    .routing-input-container .btn-route {
+        min-width: 118px;
+        min-height: 40px;
+        padding: 9px 16px;
+        font-size: 0.74rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .routing-input-container {
+        padding: 10px;
+        border-radius: 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 9px;
+    }
+
+    .routing-input-container::before {
+        display: none;
+    }
+
+    .routing-input-container .input-url {
+        width: 100%;
+        height: 42px;
+        padding: 0 12px;
+        border: 1px solid #383d45;
+        border-radius: 11px;
+        background-color: #1c1e22;
+        font-size: 0.78rem;
+        text-align: center;
+    }
+
+    .routing-input-container .input-url:focus {
+        border-color: rgba(46, 125, 232, 0.7);
+    }
+
+    .routing-input-container .btn-route {
+        width: 100%;
+        min-width: 0;
+        min-height: 40px;
+        padding: 9px 14px;
+        border-radius: 11px;
+    }
+}
+
+@media (max-width: 400px) {
+    .routing-input-container {
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .routing-input-container .input-url {
+        height: 40px;
+        padding: 0 9px;
+        font-size: 0.72rem;
+    }
+
+    .routing-input-container .btn-route {
+        min-height: 38px;
+        font-size: 0.7rem;
+    }
+}
+
+/* =========================================================
+   Final clean routing bar style
+   ========================================================= */
+
+.routing-input-container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 56px;
+    padding: 6px;
+    border: 1px solid #383d45;
+    border-radius: 15px;
+    background-color: #202226;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    direction: rtl;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.routing-input-container::before {
+    display: none;
+    content: none;
+}
+
+.routing-input-container:focus-within {
+    border-color: #4a85d8;
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.25),
+        0 0 0 3px rgba(46, 125, 232, 0.1);
+}
+
+.routing-input-container .input-url {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 42px;
+    padding: 0 14px;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: #f2f4f7;
+    direction: rtl;
+    font-size: 0.84rem;
+    text-align: right;
+}
+
+.routing-input-container .input-url::placeholder {
+    color: #858c96;
+    opacity: 1;
+}
+
+.routing-input-container .btn-route {
+    display: inline-flex;
+    width: auto;
+    min-width: 128px;
+    min-height: 42px;
+    padding: 9px 19px;
+    border: 1px solid #397fdc;
+    border-radius: 10px;
+    background-color: #2878df;
+    background-image: none;
+    box-shadow: 0 6px 14px rgba(40, 120, 223, 0.24);
+    color: #ffffff;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.76rem;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.routing-input-container .btn-route:hover {
+    border-color: #4b91ec;
+    background-color: #3487ea;
+    background-image: none;
+    box-shadow: 0 8px 18px rgba(40, 120, 223, 0.32);
+    transform: translateY(-1px);
+}
+
+.routing-input-container .btn-route:active {
+    background-color: #226ac6;
+    box-shadow: 0 4px 10px rgba(40, 120, 223, 0.22);
+    transform: translateY(0);
+}
+
+@media (max-width: 850px) {
+    .routing-input-container {
+        min-height: 52px;
+        padding: 5px;
+        border-radius: 14px;
+    }
+
+    .routing-input-container .input-url {
+        height: 40px;
+        padding: 0 11px;
+        font-size: 0.78rem;
+    }
+
+    .routing-input-container .btn-route {
+        min-width: 112px;
+        min-height: 40px;
+        padding: 8px 14px;
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .routing-input-container {
+        padding: 9px;
+        border-radius: 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .routing-input-container .input-url {
+        width: 100%;
+        height: 42px;
+        padding: 0 12px;
+        border: 1px solid #373b42;
+        border-radius: 10px;
+        background-color: #191b1f;
+        text-align: center;
+    }
+
+    .routing-input-container .btn-route {
+        width: 100%;
+        min-width: 0;
+        min-height: 40px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .routing-input-container {
+        padding: 8px;
+    }
+
+    .routing-input-container .input-url {
+        height: 40px;
+        padding: 0 9px;
+        font-size: 0.72rem;
+    }
+
+    .routing-input-container .btn-route {
+        min-height: 38px;
+        font-size: 0.69rem;
+    }
+}
+
+/* =========================================================
+   Final typography and button color system
+   ========================================================= */
+
+:root {
+    --text-primary: #f5f7fa;
+    --text-secondary: #a7afba;
+    --text-muted: #78818d;
+    --blue-default: #2f7fe5;
+    --blue-hover: #438fec;
+    --blue-active: #256bc2;
+    --green-default: #2f9e44;
+    --green-hover: #3caf51;
+    --green-active: #27873a;
+    --red-default: #e13b3f;
+    --red-hover: #ec5054;
+    --red-active: #c92f33;
+}
+
+/* Main brand text */
+.logo-text {
+    color: var(--text-primary);
+    font-size: clamp(1.25rem, 1.7vw, 1.75rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+/* Navigation labels */
+.nav-item {
+    color: var(--text-secondary);
+    font-size: clamp(0.76rem, 0.9vw, 0.88rem);
+    font-weight: 600;
+}
+
+.nav-item.active {
+    color: #ffffff;
+}
+
+/* Section headings */
+.section-subheading,
+.downloads-capsule-wrapper>.section-subheading {
+    color: var(--text-primary);
+    font-size: clamp(1rem, 1.25vw, 1.18rem);
+    font-weight: 750;
+    line-height: 1.45;
+}
+
+/* Device names and loading messages */
+.device-name,
+.placeholder-text {
+    color: var(--text-primary);
+    font-size: clamp(0.82rem, 1vw, 0.95rem);
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.device-detail,
+.status-badge {
+    color: var(--text-secondary);
+    font-size: clamp(0.66rem, 0.8vw, 0.76rem);
+}
+
+/* Input text */
+.routing-input-container .input-url {
+    color: var(--text-primary);
+    font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+    font-weight: 500;
+}
+
+.routing-input-container .input-url::placeholder {
+    color: var(--text-muted);
+    font-size: inherit;
+    font-weight: 400;
+}
+
+/* Table typography */
+.downloads-table th,
+.recent-downloads-table th,
+.downloads-capsule-wrapper .recent-downloads-table th {
+    color: var(--text-secondary);
+    font-size: clamp(0.66rem, 0.75vw, 0.76rem);
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.downloads-table td,
+.recent-downloads-table td,
+.downloads-capsule-wrapper .recent-downloads-table td {
+    color: #e9edf2;
+    font-size: clamp(0.68rem, 0.82vw, 0.8rem);
+    font-weight: 500;
+    line-height: 1.45;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table .empty-row td,
+.downloads-capsule-wrapper .recent-downloads-table td[colspan] {
+    color: #8f98a4;
+    font-size: clamp(0.72rem, 0.85vw, 0.82rem);
+    font-weight: 500;
+}
+
+/* Shared button typography */
+.btn-route,
+.btn-modern {
+    font-family: inherit;
+    font-size: clamp(0.72rem, 0.82vw, 0.82rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2;
+}
+
+/* Primary download button */
+.routing-input-container .btn-route {
+    border-color: #3c88e8;
+    background-color: var(--blue-default);
+    background-image: none;
+    box-shadow: 0 7px 16px rgba(47, 127, 229, 0.27);
+    color: #ffffff;
+}
+
+.routing-input-container .btn-route:hover {
+    border-color: #5a9bf0;
+    background-color: var(--blue-hover);
+    background-image: none;
+    box-shadow: 0 9px 20px rgba(47, 127, 229, 0.34);
+}
+
+.routing-input-container .btn-route:active {
+    border-color: var(--blue-active);
+    background-color: var(--blue-active);
+}
+
+/* Resume buttons */
+#btn-resume-all-downloads-home,
+#btn-resume-all-downloads {
+    border-color: #43af57 !important;
+    background-color: var(--green-default) !important;
+    box-shadow: 0 6px 14px rgba(47, 158, 68, 0.25) !important;
+    color: #ffffff !important;
+}
+
+#btn-resume-all-downloads-home:hover,
+#btn-resume-all-downloads:hover {
+    background-color: var(--green-hover) !important;
+    box-shadow: 0 8px 18px rgba(47, 158, 68, 0.32) !important;
+}
+
+#btn-resume-all-downloads-home:active,
+#btn-resume-all-downloads:active {
+    background-color: var(--green-active) !important;
+}
+
+/* Stop buttons */
+#btn-stop-all-downloads-home,
+#btn-stop-all-downloads {
+    border-color: #ed5559 !important;
+    background-color: var(--red-default) !important;
+    box-shadow: 0 6px 14px rgba(225, 59, 63, 0.25) !important;
+    color: #ffffff !important;
+}
+
+#btn-stop-all-downloads-home:hover,
+#btn-stop-all-downloads:hover {
+    background-color: var(--red-hover) !important;
+    box-shadow: 0 8px 18px rgba(225, 59, 63, 0.32) !important;
+}
+
+#btn-stop-all-downloads-home:active,
+#btn-stop-all-downloads:active {
+    background-color: var(--red-active) !important;
+}
+
+/* Compact typography on phones */
+@media (max-width: 600px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .section-subheading,
+    .downloads-capsule-wrapper>.section-subheading {
+        font-size: 0.96rem;
+    }
+
+    .device-name,
+    .placeholder-text {
+        font-size: 0.8rem;
+    }
+
+    .routing-input-container .input-url {
+        font-size: 0.76rem;
+    }
+
+    .downloads-table th,
+    .recent-downloads-table th,
+    .downloads-capsule-wrapper .recent-downloads-table th {
+        font-size: 0.64rem;
+    }
+
+    .downloads-table td,
+    .recent-downloads-table td,
+    .downloads-capsule-wrapper .recent-downloads-table td {
+        font-size: 0.66rem;
+    }
+
+    .btn-route,
+    .btn-modern {
+        font-size: 0.68rem !important;
+    }
+}
+
+/* =========================================================
+   Final routing field sizing fix
+   ========================================================= */
+
+.routing-input-container .input-url {
+    display: block;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px;
+    flex: 1 1 auto;
+    padding: 0 14px !important;
+    line-height: 42px;
+}
+
+.routing-input-container .btn-route {
+    height: 42px;
+    min-height: 42px !important;
+    max-height: 42px;
+}
+
+@media (max-width: 600px) {
+    .routing-input-container {
+        min-height: auto;
+        padding: 9px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 9px !important;
+        overflow: visible;
+    }
+
+    .routing-input-container .input-url {
+        display: block;
+        width: 100% !important;
+        height: 44px !important;
+        min-height: 44px !important;
+        max-height: 44px;
+        flex: 0 0 44px !important;
+        padding: 0 12px !important;
+        border: 1px solid #3b414a !important;
+        border-radius: 10px !important;
+        background-color: #191b1f !important;
+        line-height: normal;
+        text-align: right;
+    }
+
+    .routing-input-container .btn-route {
+        display: flex;
+        width: 100% !important;
+        height: 42px;
+        min-height: 42px !important;
+        max-height: 42px;
+        flex: 0 0 42px !important;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .routing-input-container .input-url {
+        height: 42px !important;
+        min-height: 42px !important;
+        max-height: 42px;
+        flex-basis: 42px !important;
+    }
+
+    .routing-input-container .btn-route {
+        height: 40px;
+        min-height: 40px !important;
+        max-height: 40px;
+        flex-basis: 40px !important;
+    }
+}
+
+/* =========================================================
+   Final routing layout override
+   ========================================================= */
+
+@media (min-width: 361px) {
+    .routing-input-container {
+        min-height: 56px !important;
+        padding: 6px !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 8px !important;
+        overflow: hidden;
+    }
+
+    .routing-input-container .input-url {
+        display: block;
+        width: 100% !important;
+        height: 42px !important;
+        min-height: 42px !important;
+        max-height: 42px !important;
+        flex: 1 1 auto !important;
+        padding: 0 14px !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background-color: transparent !important;
+        line-height: normal;
+        text-align: right;
+    }
+
+    .routing-input-container .btn-route {
+        display: inline-flex;
+        width: auto !important;
+        min-width: 120px;
+        max-width: 145px;
+        height: 42px !important;
+        min-height: 42px !important;
+        max-height: 42px !important;
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+        padding: 9px 18px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .routing-input-container {
+        min-height: auto !important;
+        padding: 9px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+    }
+
+    .routing-input-container .input-url {
+        width: 100% !important;
+        height: 42px !important;
+        min-height: 42px !important;
+        max-height: 42px !important;
+        flex: 0 0 42px !important;
+        padding: 0 10px !important;
+        border: 1px solid #3b414a !important;
+        border-radius: 10px !important;
+        background-color: #191b1f !important;
+        text-align: center;
+    }
+
+    .routing-input-container .btn-route {
+        width: 100% !important;
+        min-width: 0;
+        max-width: 100%;
+        height: 40px !important;
+        min-height: 40px !important;
+        max-height: 40px !important;
+        flex: 0 0 40px !important;
+        margin: 0 !important;
+    }
+}
+
+/* =========================================================
+   Definitive responsive routing layout
+   ========================================================= */
+
+/* Large and medium screens: input and button side by side */
+@media (min-width: 601px) {
+    .routing-input-container {
+        min-height: 56px !important;
+        padding: 6px !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 8px !important;
+        overflow: hidden;
+    }
+
+    .routing-input-container .input-url {
+        display: block;
+        width: 100% !important;
+        height: 42px !important;
+        min-height: 42px !important;
+        max-height: 42px !important;
+        flex: 1 1 auto !important;
+        padding: 0 14px !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background-color: transparent !important;
+        line-height: normal;
+        text-align: right;
+    }
+
+    .routing-input-container .btn-route {
+        display: inline-flex;
+        width: auto !important;
+        min-width: 125px;
+        max-width: 150px;
+        height: 42px !important;
+        min-height: 42px !important;
+        max-height: 42px !important;
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+        padding: 9px 18px !important;
+    }
+}
+
+/* Small screens: input above the full-width button */
+@media (max-width: 600px) {
+    .routing-input-container {
+        min-height: auto !important;
+        padding: 10px !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        gap: 9px !important;
+        overflow: visible;
+    }
+
+    .routing-input-container .input-url {
+        display: block;
+        width: 100% !important;
+        height: 44px !important;
+        min-height: 44px !important;
+        max-height: 44px !important;
+        flex: 0 0 44px !important;
+        padding: 0 12px !important;
+        border: 1px solid #3b414a !important;
+        border-radius: 10px !important;
+        background-color: #191b1f !important;
+        line-height: normal;
+        text-align: right;
+    }
+
+    .routing-input-container .btn-route {
+        display: flex;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: 42px !important;
+        min-height: 42px !important;
+        max-height: 42px !important;
+        flex: 0 0 42px !important;
+        margin: 0 !important;
+        padding: 9px 14px !important;
+    }
+}
+
+/* =========================================================
+   Routing layout based on the component width
+   ========================================================= */
+
+.routing-section {
+    container-type: inline-size;
+    container-name: routing-area;
+}
+
+/* Default layout for large and medium routing areas */
+.routing-section .routing-input-container {
+    min-height: 56px !important;
+    padding: 6px !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    overflow: hidden;
+}
+
+.routing-section .routing-input-container .input-url {
+    display: block;
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    flex: 1 1 auto !important;
+    padding: 0 14px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    line-height: normal;
+    text-align: right;
+}
+
+.routing-section .routing-input-container .btn-route {
+    display: inline-flex;
+    width: auto !important;
+    min-width: 125px !important;
+    max-width: 150px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 9px 18px !important;
+}
+
+/* Stack only when the routing component itself becomes narrow */
+@container routing-area (max-width: 520px) {
+    .routing-section .routing-input-container {
+        min-height: auto !important;
+        padding: 10px !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        gap: 9px !important;
+        overflow: visible;
+    }
+
+    .routing-section .routing-input-container .input-url {
+        width: 100% !important;
+        height: 44px !important;
+        min-height: 44px !important;
+        max-height: 44px !important;
+        flex: 0 0 44px !important;
+        padding: 0 12px !important;
+        border: 1px solid #3b414a !important;
+        border-radius: 10px !important;
+        background-color: #191b1f !important;
+        text-align: right;
+    }
+
+    .routing-section .routing-input-container .btn-route {
+        display: flex;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        height: 42px !important;
+        min-height: 42px !important;
+        max-height: 42px !important;
+        flex: 0 0 42px !important;
+        padding: 9px 14px !important;
+    }
+}
+
+/* Disable animations when reduced motion is preferred */
+@media (prefers-reduced-motion: reduce) {
+
+    .nav-links,
+    .nav-toggle,
+    .nav-toggle-line,
+    .recent-downloads-table td,
+    .bulk-actions .btn-modern {
+        transition: none;
+    }
+}
+
+/* =========================================================
+   Final populated recent-download row fix
+   This must remain at the end because responsive.css loads last.
+   ========================================================= */
+
+.downloads-capsule-wrapper .recent-downloads-table {
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table tbody tr:not(.empty-row)>td,
+.downloads-capsule-wrapper .recent-downloads-table tbody tr:not(.empty-row)>td:first-child,
+.downloads-capsule-wrapper .recent-downloads-table tbody tr:not(.empty-row)>td:last-child {
+    display: table-cell !important;
+    height: 66px !important;
+    margin: 0 !important;
+    padding: 12px 10px !important;
+    background: #292d33 !important;
+    border-top: 1px solid #3a4049 !important;
+    border-bottom: 1px solid #3a4049 !important;
+    border-right: 0 !important;
+    border-left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background-clip: border-box !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table tbody tr:not(.empty-row):hover>td {
+    background: #30353d !important;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table tbody tr:not(.empty-row) .file-name {
+    direction: ltr;
+    text-align: left !important;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table tbody tr:not(.empty-row) .progress-wrapper {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table tbody tr:not(.empty-row) .progress-track {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table tbody tr:not(.empty-row) .progress-percentage {
+    min-width: 38px;
+    flex: 0 0 38px;
+}
+
+.downloads-capsule-wrapper .recent-downloads-table tbody tr:not(.empty-row) button {
+    white-space: nowrap;
+}

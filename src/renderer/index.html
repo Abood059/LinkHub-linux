@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LinkHub</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="navbar-wrapper">
+            <nav class="navbar">
+                <div class="logo">
+                    <span class="logo-text">LinkHub</span>
+                </div>
+
+                <!-- Mobile navigation toggle -->
+                <button type="button" class="nav-toggle" id="nav-toggle" aria-label="فتح قائمة التنقل"
+                    aria-controls="nav-links" aria-expanded="false">
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                </button>
+
+                <div class="nav-links" id="nav-links" dir="rtl">
+                    <a href="#" class="nav-item active" data-tab="home">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <path
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        <span>الرئيسية</span>
+                    </a>
+
+                    <a href="#" class="nav-item" data-tab="downloads">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 4v12m-4-4l4 4 4-4" />
+                        </svg>
+                        <span>التحميلات</span>
+                    </a>
+
+                    <a href="#" class="nav-item" data-tab="settings">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            aria-hidden="true">
+                            <path
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                        <span>الإعدادات</span>
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="dashboard-content">
+            <div id="home-section" class="tab-section active-section">
+                <section class="devices-section">
+                    <div class="devices-capsule-wrapper">
+                        <h2 class="section-subheading">الأجهزة المفضلة</h2>
+
+                        <div class="devices-capsule-pill" id="favorite-devices">
+                            <div class="placeholder-text">جاري تحميل الأجهزة...</div>
+                        </div>
+                    </div>
+
+                    <div class="devices-capsule-wrapper offset-top">
+                        <h2 class="section-subheading offline-sub">الأجهزة الأخرى</h2>
+
+                        <div class="devices-capsule-pill offline-capsule" id="non-favorite-devices">
+                            <div class="placeholder-text">جاري البحث عن أجهزة...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="routing-section">
+                    <div class="routing-input-container">
+                        <input type="text" class="input-url" id="media-url"
+                            placeholder="أدخل رابط الوسائط (فيديو، أغنية) لبدء التوجيه...">
+
+                        <button class="btn-route" id="btn-start-route">
+                            بدأ التحميل
+                        </button>
+                    </div>
+                </section>
+
+                <section class="recent-downloads-section">
+                    <div class="downloads-capsule-wrapper">
+                        <h2 class="section-subheading">أحدث التحميلات</h2>
+
+                        <div class="bulk-actions" style="margin-bottom: 12px; display: flex; gap: 8px;">
+                            <button id="btn-stop-all-downloads-home" class="btn-outline btn-modern"
+                                style="background-color:#D32F2F;color:white;border:none;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:.85rem;font-weight:600;transition:all .2s ease;box-shadow:0 2px 8px rgba(211,47,47,.3);">
+                                إيقاف الكل
+                            </button>
+
+                            <button id="btn-resume-all-downloads-home" class="btn-outline btn-modern"
+                                style="background-color:#388E3C;color:white;border:none;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:.85rem;font-weight:600;transition:all .2s ease;box-shadow:0 2px 8px rgba(56,142,60,.3);">
+                                استئناف الكل
+                            </button>
+                        </div>
+
+                        <div class="recent-downloads-table-container">
+                            <table class="downloads-table recent-downloads-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:22%;">اسم الملف</th>
+                                        <th style="width:16%;">التقدم</th>
+                                        <th style="width:10%;">الحجم</th>
+                                        <th style="width:14%;">السرعة</th>
+                                        <th style="width:22%;">الإجراءات</th>
+                                        <th style="width:16%;">المشاركة</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="recent-downloads-tbody">
+                                    <tr class="empty-row">
+                                        <td colspan="6" style="text-align:center;">
+                                            لا توجد تحميلات نشطة
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="downloads-section" class="tab-section">
+                <section class="routing-section">
+                    <div class="routing-input-container">
+                        <input type="text" class="input-url" id="media-url-downloads"
+                            placeholder="أدخل رابط الوسائط (فيديو، أغنية) لبدء التوجيه...">
+
+                        <button class="btn-route" id="btn-start-route-downloads">
+                            بدأ التحميل
+                        </button>
+                    </div>
+                </section>
+
+                <div class="downloads-card">
+                    <h2 class="section-subheading right-align">
+                        قائمة التحميلات النشطة
+                    </h2>
+
+                    <div class="bulk-actions" style="margin-bottom:12px;display:flex;gap:8px;">
+                        <button id="btn-stop-all-downloads" class="btn-outline btn-modern"
+                            style="background-color:#D32F2F;color:white;border:none;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:.85rem;font-weight:600;transition:all .2s ease;box-shadow:0 2px 8px rgba(211,47,47,.3);">
+                            إيقاف الكل
+                        </button>
+
+                        <button id="btn-resume-all-downloads" class="btn-outline btn-modern"
+                            style="background-color:#388E3C;color:white;border:none;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:.85rem;font-weight:600;transition:all .2s ease;box-shadow:0 2px 8px rgba(56,142,60,.3);">
+                            استئناف الكل
+                        </button>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="downloads-table">
+                            <thead>
+                                <tr>
+                                    <th style="width:16%;">اسم الملف</th>
+                                    <th style="width:12%;">التقدم</th>
+                                    <th style="width:8%;">الحجم</th>
+                                    <th style="width:12%;">السرعة</th>
+                                    <th style="width:12%;">حالة النقل</th>
+                                    <th style="width:26%;">الإجراءات</th>
+                                    <th style="width:14%;">المشاركة</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="downloads-tbody">
+                                <tr class="empty-row">
+                                    <td colspan="7" style="text-align:center;">
+                                        لا توجد تحميلات نشطة
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settings-section" class="tab-section">
+                <div class="settings-card">
+                    <h2 class="section-subheading right-align">
+                        الإعدادات العامة
+                    </h2>
+
+                    <div class="settings-placeholder">
+                        <p>✔️ جودة البث التلقائي: عالية (قابل للتعديل لاحقاً)</p>
+                        <p>✔️ حفظ الملفات على الجهاز: مفعل</p>
+                        <p>✔️ إشعارات التحميل: مفعلة</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="device-modal" class="device-modal" style="display:none;">
+        <div class="modal-overlay"></div>
+
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+
+            <div class="modal-header">
+                <div class="device-icon-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                </div>
+
+                <div class="modal-device-name-container">
+                    <h3 id="modal-device-name" class="modal-device-name"></h3>
+
+                    <button id="modal-favorite-star" class="favorite-star" title="إضافة للمفضلة">
+                        <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="device-detail-row">
+                    <span class="detail-label">الاسم المخصص:</span>
+
+                    <div class="custom-name-container">
+                        <span id="modal-custom-name-display" class="detail-value custom-name-display"></span>
+
+                        <button id="modal-edit-name-btn" class="edit-icon-btn" title="تعديل الاسم">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                            </svg>
+                        </button>
+
+                        <input type="text" id="modal-device-custom-name" class="detail-input custom-name-input"
+                            placeholder="أدخل اسماً مخصصاً..." style="display:none;">
+
+                        <button id="modal-save-name-btn" class="save-name-btn" style="display:none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="device-detail-row">
+                    <span class="detail-label">الموديل:</span>
+                    <span id="modal-device-model" class="detail-value"></span>
+                </div>
+
+                <div class="device-detail-row">
+                    <span class="detail-label">الإصدار:</span>
+                    <span id="modal-device-version" class="detail-value"></span>
+                </div>
+
+                <div class="device-detail-row">
+                    <span class="detail-label">المعمارية:</span>
+                    <span id="modal-device-arch" class="detail-value"></span>
+                </div>
+
+                <div class="device-detail-row">
+                    <span class="detail-label">الحالة:</span>
+                    <span id="modal-device-status" class="detail-value status-badge-modal"></span>
+                </div>
+
+                <div class="device-detail-row">
+                    <span class="detail-label">معرف ADB:</span>
+                    <span id="modal-device-adb" class="detail-value code"></span>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="modal-stream-btn" class="modal-btn primary">
+                    بث الشاشة
+                </button>
+
+                <button id="modal-disconnect-btn" class="modal-btn danger">
+                    قطع الاتصال
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="format-selection-modal" class="device-modal" style="display:none;">
+        <div class="modal-overlay"></div>
+
+        <div class="modal-content format-modal-content">
+            <button class="modal-close" id="format-modal-close">&times;</button>
+
+            <div class="modal-header">
+                <h3 class="modal-device-name">اختر جودة التحميل</h3>
+            </div>
+
+            <div class="modal-body">
+                <div class="format-section">
+                    <h4 class="format-section-title">
+                        جودة الصورة (فيديو)
+                    </h4>
+
+                    <div class="formats-table-container">
+                        <table class="formats-table">
+                            <thead>
+                                <tr>
+                                    <th>الجودة</th>
+                                    <th>الدقة</th>
+                                    <th>الحجم</th>
+                                    <th>اختيار</th>
+                                </tr>
+                            </thead>
+                            <tbody id="video-formats-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="format-section">
+                    <h4 class="format-section-title">جودة الصوت</h4>
+
+                    <div class="formats-table-container">
+                        <table class="formats-table">
+                            <thead>
+                                <tr>
+                                    <th>الجودة</th>
+                                    <th>الحجم</th>
+                                    <th>الاختيار</th>
+                                </tr>
+                            </thead>
+                            <tbody id="audio-formats-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="format-section">
+                    <h4 class="format-section-title">
+                        الجهاز الهدف (اختياري)
+                    </h4>
+
+                    <div class="devices-table-container">
+                        <table class="formats-table">
+                            <thead>
+                                <tr>
+                                    <th>الجهاز</th>
+                                    <th>الحالة</th>
+                                    <th>اختيار</th>
+                                </tr>
+                            </thead>
+                            <tbody id="devices-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="format-cancel-btn" class="modal-btn danger">
+                    إلغاء
+                </button>
+
+                <button id="format-start-btn" class="modal-btn primary">
+                    بدء التحميل
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="share-modal" class="device-modal" style="display:none;">
+        <div class="modal-overlay"></div>
+
+        <div class="modal-content share-modal-content">
+            <button class="modal-close" id="share-modal-close">&times;</button>
+
+            <div class="modal-header">
+                <h3 class="modal-device-name" id="share-modal-title">
+                    مشاركة الملف
+                </h3>
+            </div>
+
+            <div class="modal-body">
+                <div class="share-section">
+                    <h4 class="format-section-title">الأجهزة المتصلة</h4>
+
+                    <div class="transfer-table-container">
+                        <table class="transfer-table">
+                            <thead>
+                                <tr>
+                                    <th>الجهاز</th>
+                                    <th>التقدم</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody id="share-devices-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="share-modal-close-btn" class="modal-btn danger">
+                    إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="device-selection-modal" class="device-modal" style="display:none;">
+        <div class="modal-overlay"></div>
+
+        <div class="modal-content format-modal-content">
+            <button class="modal-close" id="device-selection-modal-close">&times;</button>
+
+            <div class="modal-header">
+                <h3 class="modal-device-name">
+                    اختر الأجهزة المستهدفة
+                </h3>
+            </div>
+
+            <div class="modal-body">
+                <div class="format-section">
+                    <h4 class="format-section-title">الأجهزة المتصلة</h4>
+
+                    <div class="devices-table-container">
+                        <table class="formats-table">
+                            <thead>
+                                <tr>
+                                    <th>الجهاز</th>
+                                    <th>الحالة</th>
+                                    <th>اختيار</th>
+                                </tr>
+                            </thead>
+                            <tbody id="device-selection-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="device-selection-cancel-btn" class="modal-btn danger">
+                    إلغاء
+                </button>
+
+                <button id="device-selection-start-btn" class="modal-btn primary">
+                    بدء النقل
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <button id="fab-share-files" class="fab-share-files" title="مشاركة ملفات">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="17 8 12 3 7 8" />
+            <line x1="12" y1="3" x2="12" y2="15" />
+        </svg>
+    </button>
+
+    <div id="transfer-progress-fab" class="transfer-progress-fab" style="display:none;">
+        <svg class="progress-ring" viewBox="0 0 36 36">
+            <path class="progress-ring-bg"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="progress-ring-circle"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+        </svg>
+        <span class="progress-icon"></span>
+    </div>
+
+    <div id="transfer-popover" class="transfer-popover" style="display:none;">
+        <div class="popover-header">
+            <span>عمليات النقل</span>
+            <button class="popover-close">&times;</button>
+        </div>
+
+        <div class="popover-content" id="transfer-popover-content"></div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

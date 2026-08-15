@@ -1,0 +1,594 @@
+.
+├── BUG_FIX_REPORT.md
+├── CLI_README.md
+├── LinkHub_.code-workspace
+├── changes_from_v2.txt
+├── coverage
+│   ├── clover.xml
+│   ├── coverage-final.json
+│   ├── lcov-report
+│   │   ├── AdbCommandExecutor.js.html
+│   │   ├── DatabaseManager.js.html
+│   │   ├── DeviceHandlers.js.html
+│   │   ├── DownloadHandlers.js.html
+│   │   ├── ScrcpyAdapter.js.html
+│   │   ├── adb
+│   │   │   ├── AdbCommandExecutor.js.html
+│   │   │   ├── ConnectionService.js.html
+│   │   │   └── index.html
+│   │   ├── base.css
+│   │   ├── block-navigation.js
+│   │   ├── domain
+│   │   │   ├── entities
+│   │   │   │   ├── AudioFile.js.html
+│   │   │   │   ├── BaseFile.js.html
+│   │   │   │   ├── BaseNode.js.html
+│   │   │   │   ├── Device.js.html
+│   │   │   │   ├── HttpFile.js.html
+│   │   │   │   ├── MediaNode.js.html
+│   │   │   │   ├── VideoFile.js.html
+│   │   │   │   └── index.html
+│   │   │   └── value-objects
+│   │   │       ├── FileStatus.js.html
+│   │   │       └── index.html
+│   │   ├── favicon.png
+│   │   ├── index.html
+│   │   ├── index.js.html
+│   │   ├── infrastructure
+│   │   │   ├── adb
+│   │   │   │   ├── AdbCommandExecutor.js.html
+│   │   │   │   ├── ConnectionService.js.html
+│   │   │   │   └── index.html
+│   │   │   ├── ipc
+│   │   │   │   ├── DeviceHandlers.js.html
+│   │   │   │   ├── DownloadHandlers.js.html
+│   │   │   │   └── index.html
+│   │   │   ├── logging
+│   │   │   │   ├── ErrorCentralService.js.html
+│   │   │   │   ├── LoggerContext.js.html
+│   │   │   │   ├── index.html
+│   │   │   │   └── logging.constants.js.html
+│   │   │   ├── media
+│   │   │   │   ├── YtdlpAdapter.js.html
+│   │   │   │   └── index.html
+│   │   │   ├── persistence
+│   │   │   │   ├── DatabaseManager.js.html
+│   │   │   │   └── index.html
+│   │   │   ├── process
+│   │   │   │   ├── ProcessEntity.js.html
+│   │   │   │   ├── ProcessLogFormatter.js.html
+│   │   │   │   ├── ProcessManager.js.html
+│   │   │   │   ├── index.html
+│   │   │   │   └── process.constants.js.html
+│   │   │   ├── streaming
+│   │   │   │   ├── ScrcpyAdapter.js.html
+│   │   │   │   └── index.html
+│   │   │   ├── tools
+│   │   │   │   ├── ToolPathResolver.js.html
+│   │   │   │   └── index.html
+│   │   │   └── windows
+│   │   │       ├── AppWindow.js.html
+│   │   │       ├── WindowManager.js.html
+│   │   │       ├── WindowRegistry.js.html
+│   │   │       └── index.html
+│   │   ├── logging
+│   │   │   ├── LoggerContext.js.html
+│   │   │   └── index.html
+│   │   ├── prettify.css
+│   │   ├── prettify.js
+│   │   ├── process
+│   │   │   ├── ProcessEntity.js.html
+│   │   │   ├── ProcessLogFormatter.js.html
+│   │   │   ├── ProcessManager.js.html
+│   │   │   ├── index.html
+│   │   │   ├── index.js.html
+│   │   │   └── process.constants.js.html
+│   │   ├── runtime
+│   │   │   ├── devices
+│   │   │   │   ├── DeviceRegistry.js.html
+│   │   │   │   ├── DeviceRuntimeState.js.html
+│   │   │   │   └── index.html
+│   │   │   └── processes
+│   │   │       ├── ProcessRegistry.js.html
+│   │   │       ├── ProcessSupervisor.js.html
+│   │   │       └── index.html
+│   │   ├── sort-arrow-sprite.png
+│   │   ├── sorter.js
+│   │   └── streaming
+│   │       ├── ScrcpyAdapter.js.html
+│   │       └── index.html
+│   └── lcov.info
+├── data
+│   └── linkhub.db
+├── jest.config.js
+├── jest.e2e.config.js
+├── logs
+│   └── sync-errors.log
+├── package-lock.json
+├── package.json
+├── repomix.config.json
+├── resources
+│   └── bin
+│       ├── linux
+│       │   ├── _internal
+│       │   │   ├── 81d243bd2c585b0f4821__mypyc.cpython-314-x86_64-linux-gnu.so
+│       │   │   ├── Cryptodome
+│       │   │   │   ├── Cipher
+│       │   │   │   │   ├── _ARC4.abi3.so
+│       │   │   │   │   ├── _Salsa20.abi3.so
+│       │   │   │   │   ├── _chacha20.abi3.so
+│       │   │   │   │   ├── _pkcs1_decode.abi3.so
+│       │   │   │   │   ├── _raw_aes.abi3.so
+│       │   │   │   │   ├── _raw_aesni.abi3.so
+│       │   │   │   │   ├── _raw_arc2.abi3.so
+│       │   │   │   │   ├── _raw_blowfish.abi3.so
+│       │   │   │   │   ├── _raw_cast.abi3.so
+│       │   │   │   │   ├── _raw_cbc.abi3.so
+│       │   │   │   │   ├── _raw_cfb.abi3.so
+│       │   │   │   │   ├── _raw_ctr.abi3.so
+│       │   │   │   │   ├── _raw_des.abi3.so
+│       │   │   │   │   ├── _raw_des3.abi3.so
+│       │   │   │   │   ├── _raw_ecb.abi3.so
+│       │   │   │   │   ├── _raw_eksblowfish.abi3.so
+│       │   │   │   │   ├── _raw_ocb.abi3.so
+│       │   │   │   │   └── _raw_ofb.abi3.so
+│       │   │   │   ├── Hash
+│       │   │   │   │   ├── _BLAKE2b.abi3.so
+│       │   │   │   │   ├── _BLAKE2s.abi3.so
+│       │   │   │   │   ├── _MD2.abi3.so
+│       │   │   │   │   ├── _MD4.abi3.so
+│       │   │   │   │   ├── _MD5.abi3.so
+│       │   │   │   │   ├── _RIPEMD160.abi3.so
+│       │   │   │   │   ├── _SHA1.abi3.so
+│       │   │   │   │   ├── _SHA224.abi3.so
+│       │   │   │   │   ├── _SHA256.abi3.so
+│       │   │   │   │   ├── _SHA384.abi3.so
+│       │   │   │   │   ├── _SHA512.abi3.so
+│       │   │   │   │   ├── _ghash_clmul.abi3.so
+│       │   │   │   │   ├── _ghash_portable.abi3.so
+│       │   │   │   │   ├── _keccak.abi3.so
+│       │   │   │   │   └── _poly1305.abi3.so
+│       │   │   │   ├── Math
+│       │   │   │   │   └── _modexp.abi3.so
+│       │   │   │   ├── Protocol
+│       │   │   │   │   └── _scrypt.abi3.so
+│       │   │   │   ├── PublicKey
+│       │   │   │   │   ├── _curve25519.abi3.so
+│       │   │   │   │   ├── _curve448.abi3.so
+│       │   │   │   │   ├── _ec_ws.abi3.so
+│       │   │   │   │   ├── _ed25519.abi3.so
+│       │   │   │   │   └── _ed448.abi3.so
+│       │   │   │   └── Util
+│       │   │   │       ├── _cpuid_c.abi3.so
+│       │   │   │       └── _strxor.abi3.so
+│       │   │   ├── _brotli.cpython-314-x86_64-linux-gnu.so
+│       │   │   ├── _cffi_backend.cpython-314-x86_64-linux-gnu.so
+│       │   │   ├── base_library.zip
+│       │   │   ├── certifi
+│       │   │   │   ├── cacert.pem
+│       │   │   │   └── py.typed
+│       │   │   ├── charset_normalizer
+│       │   │   │   ├── cd.cpython-314-x86_64-linux-gnu.so
+│       │   │   │   └── md.cpython-314-x86_64-linux-gnu.so
+│       │   │   ├── cryptography
+│       │   │   │   └── hazmat
+│       │   │   │       └── bindings
+│       │   │   │           └── _rust.abi3.so
+│       │   │   ├── cryptography-49.0.0.dist-info
+│       │   │   │   ├── INSTALLER
+│       │   │   │   ├── METADATA
+│       │   │   │   ├── RECORD
+│       │   │   │   ├── REQUESTED
+│       │   │   │   ├── WHEEL
+│       │   │   │   ├── licenses
+│       │   │   │   │   ├── LICENSE
+│       │   │   │   │   ├── LICENSE.APACHE
+│       │   │   │   │   └── LICENSE.BSD
+│       │   │   │   └── sboms
+│       │   │   │       ├── cryptography-rust.cyclonedx.json
+│       │   │   │       └── sbom.json
+│       │   │   ├── curl_cffi
+│       │   │   │   └── _wrapper.abi3.so
+│       │   │   ├── curl_cffi-0.15.0.dist-info
+│       │   │   │   ├── INSTALLER
+│       │   │   │   ├── METADATA
+│       │   │   │   ├── RECORD
+│       │   │   │   ├── REQUESTED
+│       │   │   │   ├── WHEEL
+│       │   │   │   ├── entry_points.txt
+│       │   │   │   ├── licenses
+│       │   │   │   │   └── LICENSE
+│       │   │   │   └── top_level.txt
+│       │   │   ├── libbz2.so.1
+│       │   │   ├── libcrypto.so.3
+│       │   │   ├── libffi.so.6
+│       │   │   ├── libgcc_s.so.1
+│       │   │   ├── liblzma.so.5
+│       │   │   ├── libmpdec.so.4
+│       │   │   ├── libpython3.14.so.1.0
+│       │   │   ├── libreadline.so.6
+│       │   │   ├── libsqlite3.so
+│       │   │   ├── libssl.so.3
+│       │   │   ├── libstdc++.so.6
+│       │   │   ├── libtinfo.so.5
+│       │   │   ├── libuuid.so.1
+│       │   │   ├── libz.so.1
+│       │   │   ├── libzstd.so.1
+│       │   │   ├── python3.14
+│       │   │   │   └── lib-dynload
+│       │   │   │       ├── _asyncio.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _bisect.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _blake2.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _bz2.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _codecs_cn.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _codecs_hk.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _codecs_iso2022.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _codecs_jp.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _codecs_kr.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _codecs_tw.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _csv.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _ctypes.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _decimal.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _elementtree.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _hashlib.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _heapq.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _hmac.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _interpqueues.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _interpreters.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _json.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _lzma.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _md5.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _multibytecodec.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _multiprocessing.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _pickle.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _posixshmem.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _posixsubprocess.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _queue.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _random.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _sha1.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _sha2.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _sha3.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _socket.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _sqlite3.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _ssl.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _statistics.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _struct.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _uuid.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── _zstd.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── array.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── binascii.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── fcntl.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── grp.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── math.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── mmap.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── pyexpat.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── readline.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── resource.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── select.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── syslog.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── termios.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       ├── unicodedata.cpython-314-x86_64-linux-gnu.so
+│       │   │   │       └── zlib.cpython-314-x86_64-linux-gnu.so
+│       │   │   ├── setuptools
+│       │   │   │   └── _vendor
+│       │   │   │       ├── importlib_metadata-8.7.1.dist-info
+│       │   │   │       │   ├── INSTALLER
+│       │   │   │       │   ├── METADATA
+│       │   │   │       │   ├── RECORD
+│       │   │   │       │   ├── REQUESTED
+│       │   │   │       │   ├── WHEEL
+│       │   │   │       │   ├── licenses
+│       │   │   │       │   │   └── LICENSE
+│       │   │   │       │   └── top_level.txt
+│       │   │   │       └── jaraco
+│       │   │   │           └── text
+│       │   │   │               └── Lorem ipsum.txt
+│       │   │   ├── websockets
+│       │   │   │   └── speedups.cpython-314-x86_64-linux-gnu.so
+│       │   │   ├── websockets-16.0.dist-info
+│       │   │   │   ├── INSTALLER
+│       │   │   │   ├── METADATA
+│       │   │   │   ├── RECORD
+│       │   │   │   ├── REQUESTED
+│       │   │   │   ├── WHEEL
+│       │   │   │   ├── entry_points.txt
+│       │   │   │   ├── licenses
+│       │   │   │   │   └── LICENSE
+│       │   │   │   └── top_level.txt
+│       │   │   └── yt_dlp_ejs
+│       │   │       └── yt
+│       │   │           └── solver
+│       │   │               ├── core.min.js
+│       │   │               └── lib.min.js
+│       │   ├── adb
+│       │   ├── aria2c
+│       │   ├── deno
+│       │   ├── deno.zip
+│       │   ├── scrcpy
+│       │   ├── scrcpy-server
+│       │   ├── scrcpy.1
+│       │   ├── yt-dlp
+│       │   └── yt-dlp_linux
+│       └── win
+│           └── aria2c.exe
+├── src
+│   ├── cli
+│   │   ├── CliRenderer.js
+│   │   ├── CommandHandler.js
+│   │   ├── EventBridge.js
+│   │   ├── constants.js
+│   │   ├── download.js
+│   │   └── index.js
+│   ├── main
+│   │   ├── application
+│   │   │   ├── handlers
+│   │   │   │   └── DeviceEventHandler.js
+│   │   │   ├── orchestrators
+│   │   │   │   ├── DeviceOrchestrator.js
+│   │   │   │   └── DownloadOrchestrator.js
+│   │   │   └── services
+│   │   │       └── FileTransferService.js
+│   │   ├── bootstrap
+│   │   │   ├── ApplicationBootstrap.js
+│   │   │   ├── IpcBootstrap.js
+│   │   │   └── container.js
+│   │   ├── domain
+│   │   │   ├── entities
+│   │   │   │   ├── AudioFile.js
+│   │   │   │   ├── BaseFile.js
+│   │   │   │   ├── BaseNode.js
+│   │   │   │   ├── Device.js
+│   │   │   │   ├── HttpFile.js
+│   │   │   │   ├── MediaNode.js
+│   │   │   │   ├── VideoFile.js
+│   │   │   │   └── index.js
+│   │   │   └── value-objects
+│   │   │       └── FileStatus.js
+│   │   ├── index.js
+│   │   ├── infrastructure
+│   │   │   ├── adb
+│   │   │   │   ├── AdbCommandExecutor.js
+│   │   │   │   └── ConnectionService.js
+│   │   │   ├── ipc
+│   │   │   │   ├── DeviceHandlers.js
+│   │   │   │   ├── DownloadHandlers.js
+│   │   │   │   └── index.js
+│   │   │   ├── logging
+│   │   │   │   ├── ErrorCentralService.js
+│   │   │   │   ├── LoggerContext.js
+│   │   │   │   ├── index.js
+│   │   │   │   └── logging.constants.js
+│   │   │   ├── media
+│   │   │   │   ├── CompletionHandler.js
+│   │   │   │   ├── DownloadManager.js
+│   │   │   │   ├── DownloadStateManager.js
+│   │   │   │   ├── FailureHandler.js
+│   │   │   │   ├── ParallelDownloadManager.js
+│   │   │   │   ├── ProgressHandler.js
+│   │   │   │   ├── RetryHandler.js
+│   │   │   │   ├── YtdlpAdapter.js
+│   │   │   │   ├── YtdlpCommandBuilder.js
+│   │   │   │   ├── YtdlpResponseParser.js
+│   │   │   │   └── YtdlpUtils.js
+│   │   │   ├── path
+│   │   │   │   └── PathService.js
+│   │   │   ├── persistence
+│   │   │   │   ├── DatabaseManager.js
+│   │   │   │   ├── migrations
+│   │   │   │   │   ├── 001_init.sql
+│   │   │   │   │   ├── 002_clean_database.sql
+│   │   │   │   │   ├── 003_add_custom_name.sql
+│   │   │   │   │   ├── 004_add_updated_at.sql
+│   │   │   │   │   └── 005_add_failed_at.sql
+│   │   │   │   └── repositories
+│   │   │   │       ├── BaseRepository.js
+│   │   │   │       ├── DeviceRepository.js
+│   │   │   │       ├── DownloadRepository.js
+│   │   │   │       └── SettingsRepository.js
+│   │   │   ├── process
+│   │   │   │   ├── ProcessEntity.js
+│   │   │   │   ├── ProcessLogFormatter.js
+│   │   │   │   ├── ProcessManager.js
+│   │   │   │   ├── index.js
+│   │   │   │   └── process.constants.js
+│   │   │   ├── streaming
+│   │   │   │   └── ScrcpyAdapter.js
+│   │   │   ├── sync
+│   │   │   │   ├── DeviceStateSyncService.js
+│   │   │   │   ├── DownloadStateSyncService.js
+│   │   │   │   └── DownloadSyncService.js
+│   │   │   ├── tools
+│   │   │   │   ├── ToolPathResolver.js
+│   │   │   │   └── YtdlpUpdater.js
+│   │   │   └── windows
+│   │   │       ├── AppWindow.js
+│   │   │       ├── WindowManager.js
+│   │   │       └── WindowRegistry.js
+│   │   ├── runtime
+│   │   │   ├── devices
+│   │   │   │   ├── DeviceRegistry.js
+│   │   │   │   └── DeviceRuntimeState.js
+│   │   │   └── processes
+│   │   │       ├── ProcessRegistry.js
+│   │   │       └── ProcessSupervisor.js
+│   │   └── utils
+│   │       └── pathSanitizer.js
+│   ├── preload
+│   │   └── preload.js
+│   └── renderer
+│       ├── css
+│       │   ├── base.css
+│       │   ├── devices.css
+│       │   ├── downloads.css
+│       │   ├── layout.css
+│       │   ├── main.css
+│       │   ├── modal.css
+│       │   ├── responsive.css
+│       │   └── settings.css
+│       ├── index.html
+│       └── js
+│           ├── core
+│           │   ├── constants.js
+│           │   └── utils.js
+│           ├── handlers
+│           │   ├── pairHandler.js
+│           │   └── startRouteHandler.js
+│           ├── main.js
+│           ├── services
+│           │   ├── deviceService.js
+│           │   ├── downloadService.js
+│           │   └── eventService.js
+│           └── ui
+│               ├── deviceManager.js
+│               ├── downloadManager.js
+│               ├── formatSelectionModal.js
+│               ├── modalManager.js
+│               ├── selectionManager.js
+│               └── tabManager.js
+├── structure.txt
+├── temp
+│   ├── downloads
+│   └── test-download
+├── test_complete_output.txt
+├── test_download.js
+├── test_integration_download.js
+├── test_output_full.log
+├── test_parallel_download.js
+├── test_ytdlp_progress.js
+└── tests
+    ├── Test_documents
+    ├── e2e
+    │   ├── SmokeTest.e2e.test.js
+    │   ├── helpers
+    │   │   ├── electronRunner.js
+    │   │   └── testDataFactory.js
+    │   ├── mocks
+    │   │   └── adbMock.js
+    │   └── setup.js
+    ├── integration
+    │   ├── application
+    │   │   ├── DownloadOrchestrator.test.js
+    │   │   ├── handlers
+    │   │   │   └── DeviceEventHandler.integration.test.js
+    │   │   └── orchestrators
+    │   │       ├── DeviceOrchestrator.integration.test.js
+    │   │       ├── DownloadOrchestrator.integration.test.js
+    │   │       └── StopResumeDownload.integration.test.js
+    │   ├── bootstrap
+    │   │   ├── ApplicationBootstrap.integration.test.js
+    │   │   └── BootstrapIntegration.test.js
+    │   ├── infrastructure
+    │   │   ├── AdbCommandExecutor.integration.test.js
+    │   │   ├── DatabaseManager.integration.test.js
+    │   │   ├── ProcessManager.integration.test.js
+    │   │   ├── ipc
+    │   │   │   └── ipc.integration.test.js
+    │   │   └── sync
+    │   │       └── StateSyncService.integration.test.js
+    │   └── runtime-domain
+    │       └── DeviceRegistry.test.js
+    ├── manual
+    │   ├── test_resume_download_flow.js
+    │   └── test_stop_resume_download.js
+    ├── performance
+    │   ├── application
+    │   │   ├── handlers
+    │   │   │   └── DeviceEventHandler.performance.test.js
+    │   │   └── orchestrators
+    │   │       ├── DeviceOrchestrator.performance.test.js
+    │   │       ├── DownloadOrchestrator.performance.test.js
+    │   │       └── PERFORMANCE_REPORT.md
+    │   ├── bootstrap
+    │   │   └── BootstrapPerformance.test.js
+    │   └── infrastructure
+    │       ├── PerformanceStress.test.js
+    │       ├── ipc
+    │       │   └── ipc.performance.test.js
+    │       └── sync
+    │           └── StateSyncService.performance.test.js
+    └── unit
+        ├── application
+        │   ├── handlers
+        │   │   ├── DeviceEventHandler.resilience.test.js
+        │   │   ├── DeviceEventHandler.security.test.js
+        │   │   └── DeviceEventHandler.test.js
+        │   └── orchestrators
+        │       ├── DeviceOrchestrator.resilience.test.js
+        │       ├── DeviceOrchestrator.security.test.js
+        │       ├── DeviceOrchestrator.test.js
+        │       ├── DownloadOrchestrator.resilience.test.js
+        │       ├── DownloadOrchestrator.security.test.js
+        │       └── DownloadOrchestrator.test.js
+        ├── bootstrap
+        │   ├── ApplicationBootstrap.test.js
+        │   ├── ApplicationBootstrap.unit.test.js
+        │   ├── BootstrapResilience.test.js
+        │   ├── BootstrapSecurity.test.js
+        │   ├── IpcBootstrap.test.js
+        │   └── container.test.js
+        ├── domain
+        │   ├── entities
+        │   │   ├── AudioFile.test.js
+        │   │   ├── BaseFile.test.js
+        │   │   ├── BaseNode.test.js
+        │   │   ├── Device.test.js
+        │   │   ├── HttpFile.test.js
+        │   │   ├── MediaNode.test.js
+        │   │   └── VideoFile.test.js
+        │   └── value-objects
+        │       └── FileStatus.test.js
+        ├── infrastructure
+        │   ├── SecurityTestSummary.test.js
+        │   ├── adb
+        │   │   ├── AdbCommandExecutor.test.js
+        │   │   └── ConnectionService.test.js
+        │   ├── ipc
+        │   │   ├── DeviceHandlers.security.test.js
+        │   │   ├── DeviceHandlers.test.js
+        │   │   ├── DownloadHandlers.security.test.js
+        │   │   ├── DownloadHandlers.test.js
+        │   │   └── index.test.js
+        │   ├── logging
+        │   │   ├── ErrorCentralService.test.js
+        │   │   └── LoggerContext.test.js
+        │   ├── media
+        │   │   └── YtdlpAdapter.test.js
+        │   ├── persistence
+        │   │   └── DatabaseManager.test.js
+        │   ├── process
+        │   │   ├── ProcessEntity.test.js
+        │   │   ├── ProcessLogFormatter.test.js
+        │   │   └── ProcessManager.test.js
+        │   ├── streaming
+        │   │   └── ScrcpyAdapter.test.js
+        │   ├── sync
+        │   │   ├── DownloadSyncService.test.js
+        │   │   ├── StateSyncService.resilience.test.js
+        │   │   ├── StateSyncService.security.test.js
+        │   │   └── StateSyncService.test.js
+        │   ├── tools
+        │   │   └── ToolPathResolver.test.js
+        │   └── windows
+        │       ├── OTHER_TEST_FAILURES.md
+        │       ├── WindowManager.test.js
+        │       ├── WindowManager_SECURITY_ISSUES.md
+        │       └── WindowRegistry.test.js
+        ├── renderer
+        │   ├── presenters
+        │   │   ├── devicePresenter.test.js
+        │   │   └── downloadPresenter.test.js
+        │   ├── services
+        │   │   ├── eventService.test.js
+        │   │   └── stateSyncService.test.js
+        │   ├── store
+        │   │   └── appStore.test.js
+        │   └── ui
+        │       ├── DeviceList.test.js
+        │       └── DownloadList.test.js
+        └── runtime
+            ├── DeviceRuntimeState.test.js
+            ├── ProcessRegistry.test.js
+            └── processes
+                └── ProcessSupervisor.test.js
+
+151 directories, 441 files

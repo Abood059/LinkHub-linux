@@ -1,0 +1,82 @@
+{
+  "name": "linkhub_",
+  "version": "1.0.0",
+  "homepage": "https://example.com",
+  "main": "src/main/index.js",
+  "scripts": {
+    "test": "node --expose-gc ./node_modules/.bin/jest",
+    "test:coverage": "node --expose-gc ./node_modules/.bin/jest --coverage",
+    "test:e2e": "NODE_ENV=test node --expose-gc ./node_modules/.bin/jest tests/e2e",
+    "test:e2e:headless": "NODE_ENV=test HEADLESS=true node --expose-gc ./node_modules/.bin/jest tests/e2e",
+    "start": "electron . --disable-gpu --no-sandbox",
+    "postinstall": "electron-builder install-app-deps",
+    "rebuild": "electron-rebuild",
+    "build": "electron-builder --linux",
+    "cli": "node src/cli/index.js",
+    "download": "node src/cli/download.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "LinkHub Desktop Application",
+  "dependencies": {
+    "axios": "^1.16.1",
+    "better-sqlite3": "^12.10.0",
+    "bonjour-service": "^1.4.0",
+    "chalk": "^4.1.2",
+    "dotenv": "^17.4.2",
+    "electron-log": "^5.4.4",
+    "electron-squirrel-startup": "^1.0.1",
+    "neo-blessed": "^0.2.0",
+    "yt-dlp-wrap-plus": "^2.4.3"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "3.6.0",
+    "electron": "30.0.0",
+    "electron-builder": "^24.13.3",
+    "jest": "^30.4.2",
+    "memfs": "^4.0.0"
+  },
+  "build": {
+    "appId": "com.linkhub.app",
+    "productName": "LinkHub",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "resources/**/*",
+      "package.json",
+      "!**/data/**/*",
+      "!**/logs/**/*",
+      "!**/*.db",
+      "!**/*.db-shm",
+      "!**/*.db-wal",
+      "!**/*.log",
+      "!**/*.log3",
+      "!**/*.part",
+      "!**/*.aria2",
+      "!**/*.zip"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/bin",
+        "to": "resources/bin",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "asarUnpack": [
+      "resources/bin/**/*"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility",
+      "maintainer": "Your Name <you@example.com>"
+    }
+  }
+}
